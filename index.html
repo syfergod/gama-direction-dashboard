@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Gama Direction Dashboard</title>
+  <style>
+    :root { color-scheme: dark; font-family: ui-sans-serif, system-ui, sans-serif; }
+    body {
+      margin: 0;
+      background: #0f1115;
+      color: #e8eaed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      padding-bottom: max(2rem, env(safe-area-inset-bottom));
+    }
+    h1 { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.25rem; text-align: center; }
+    .sub { color: #9aa0a6; margin-bottom: 1.5rem; font-size: 0.9rem; text-align: center; max-width: 640px; line-height: 1.4; }
+    .sub a { color: #60a5fa; }
+    .wrap { width: min(720px, 100%); display: flex; flex-direction: column; gap: 1rem; }
+    .card {
+      background: #1a1d24;
+      border: 1px solid #2a2f3a;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .card h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 0.85rem;
+      color: #9aa0a6;
+    }
+    .card.direction { border-color: #3a3420; }
+    .card.direction h2 { color: #fbbf24; }
+    .card.p1 { border-color: #4a2020; }
+    .card.p1 h2 { color: #f87171; }
+    .card.p2 { border-color: #4a3010; }
+    .card.p2 h2 { color: #fb923c; }
+    .card.p3 { border-color: #1e2a4a; }
+    .card.p3 h2 { color: #60a5fa; }
+    .card.buy { border-color: #2e1f4a; }
+    .card.buy h2 { color: #a78bfa; }
+    .card.done { border-color: #1a3a28; }
+    .card.done h2 { color: #3dd68c; }
+    .direction-box {
+      background: #0f1115;
+      border: 1px solid #2a2f3a;
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: #e8eaed;
+    }
+    .direction-box ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+    .direction-box li { margin: 0.25rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th {
+      text-align: left;
+      color: #9aa0a6;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      padding: 0.35rem 0.4rem 0.55rem;
+      border-bottom: 1px solid #2a2f3a;
+    }
+    td {
+      padding: 0.55rem 0.4rem;
+      border-bottom: 1px solid #22262f;
+      vertical-align: top;
+      line-height: 1.35;
+    }
+    tr:last-child td { border-bottom: 0; }
+    .row { white-space: nowrap; color: #9aa0a6; font-variant-numeric: tabular-nums; }
+    .house { font-weight: 600; color: #c4c7ce; }
+    .item { color: #e8eaed; }
+    .status { color: #9aa0a6; font-size: 0.85rem; }
+    .status.paid { color: #3dd68c; }
+    .status.needs { color: #fbbf24; }
+    .check {
+      width: 1.1rem;
+      height: 1.1rem;
+      accent-color: #3dd68c;
+      margin-top: 0.15rem;
+    }
+    .hint { margin-top: 0.85rem; font-size: 0.8rem; color: #6b7280; line-height: 1.4; }
+    .hint a { color: #60a5fa; }
+    .pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+    .pill.open { background: #2a1515; color: #f87171; }
+    .pill.buy { background: #1f1530; color: #a78bfa; }
+    .footer { color: #6b7280; font-size: 0.8rem; text-align: center; margin-top: 0.5rem; max-width: 720px; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <h1>Gama Direction Dashboard</h1>
+  <div class="sub">
+    Local board for Grant → Gama · Updated 2026-09-15 · Edit checkboxes in the browser (not saved — flip Status on Catch-Up for permanence)<br />
+    Source list:
+    <a href="https://docs.google.com/spreadsheets/d/1WxZQV3EL3nvXW8QtBg4TNP03PrdgNk1CJ0B0Y9JueCw" target="_blank" rel="noopener">Maintenance Catch-Up</a>
+    ·
+    <a href="https://app.asana.com/0/1125965306360957" target="_blank" rel="noopener">Asana Maintenance (NoCo)</a>
+  </div>
+
+  <div class="wrap">
+    <div class="card direction">
+      <h2>1) Grant → Gama this week</h2>
+      <div class="direction-box" contenteditable="true" spellcheck="true">
+        <ul>
+          <li>Finish all <strong>Priority 1st</strong> before anything else.</li>
+          <li><strong>Chestnut first</strong> (utility room curtain only — HVAC duct seal <strong>done</strong>; cracked window deferred ~1–2 weeks), then Pyrite window screen, then Sundisk (window screen → bathroom hooks → stair light bulb).</li>
+          <li>When a house is done: send per-house invoice in the <strong>HX &amp; Gamaliel</strong> group — supplies / labor @$45/hr / drive — plus pics.</li>
+          <li>Phone port / Superior–Estes timing: optional; no rush (from group thread).</li>
+        </ul>
+      </div>
+      <div class="hint">Yellow box is editable in-browser for a quick pass. Copy lasting direction into Catch-Up / Asana if you need it to stick.</div>
+    </div>
+
+    <div class="card p1">
+      <h2>2) Do now — Priority 1st <span class="pill open">5 open</span></h2>
+      <table>
+        <thead>
+          <tr><th></th><th>Row</th><th>House</th><th>Item</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R3</td><td class="house">Chestnut</td><td class="item">Utility room curtain</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R25</td><td class="house">Pyrite</td><td class="item">Window screen repair/replacement</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R33</td><td class="house">Sundisk</td><td class="item">Window screen</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R34</td><td class="house">Sundisk</td><td class="item">Bathroom hooks</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R40</td><td class="house">Sundisk</td><td class="item">Light bulb at top of stairs</td><td class="status">Open</td></tr>
+        </tbody>
+      </table>
+      <div class="hint">Do not start 2nd/3rd until these are done. Row # = Catch-Up sheet row.</div>
+    </div>
+
+    <div class="card p2">
+      <h2>3) Next — Priority 2nd <span class="pill open">8 open</span></h2>
+      <table>
+        <thead>
+          <tr><th></th><th>Row</th><th>House</th><th>Item</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R18</td><td class="house">Gateway</td><td class="item">Floor planks coming up</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R19</td><td class="house">Gateway</td><td class="item">Clogged roof drainage system</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R20</td><td class="house">Gateway</td><td class="item">Damaged fence</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R21</td><td class="house">Gateway</td><td class="item">Broken drawer</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R22</td><td class="house">Gateway</td><td class="item">Caulking upstairs bath sink/shower</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R60</td><td class="house">Drake</td><td class="item">Lawn mower blade sharpening</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R61</td><td class="house">Drake</td><td class="item">Backyard fence (wind)</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R62</td><td class="house">Drake</td><td class="item">Screen door near dining room (off track)</td><td class="status">Open</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card p3">
+      <h2>4) Later — Priority 3rd <span class="pill open">5 open (incl. deferred window)</span></h2>
+      <table>
+        <thead>
+          <tr><th></th><th>Row</th><th>House</th><th>Item</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R24</td><td class="house">Gateway</td><td class="item">Basement bathroom cabinet above toilet</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R26</td><td class="house">Pyrite</td><td class="item">Concrete pad outside back garage door</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R31</td><td class="house">Scotch</td><td class="item">Front door glass filter</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R48</td><td class="house">Sunnyside</td><td class="item">Water filter (G.E. PFSF6PKXBWW)</td><td class="status">Open</td></tr>
+        </tbody>
+      <tr><td><input class="check" type="checkbox" /></td><td class="row">R4</td><td class="house">Chestnut</td><td class="item">Cracked window</td><td class="status">Deferred ~1–2 wks</td></tr>
+          </table>
+    </div>
+
+    <div class="card buy">
+      <h2>5) Buy / bring <span class="pill buy">from thread</span></h2>
+      <table>
+        <thead>
+          <tr><th></th><th>Row</th><th>House</th><th>Item</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R12</td><td class="house">Chestnut</td><td class="item">Furnace filter 16x25x4</td><td class="status">HX &amp; Gamaliel · Lowes list</td></tr>
+          <tr><td><input class="check" type="checkbox" /></td><td class="row">R34</td><td class="house">Sundisk</td><td class="item">Bathroom / towel hooks</td><td class="status">HX &amp; Gamaliel · confirm size</td></tr>
+        </tbody>
+      </table>
+      <div class="hint">Only thread-backed buy lines here. Promote more Catch-Up supply rows into this section when you want Gama to buy them.</div>
+    </div>
+
+    <div class="card done">
+      <h2>6) Recently done / paid</h2>
+      <table>
+        <thead>
+          <tr><th></th><th>Row</th><th>House</th><th>Item</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R28</td><td class="house">Scotch</td><td class="item">Dishwasher leaking</td><td class="status paid">Paid 9/8/2026</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R35</td><td class="house">Sundisk</td><td class="item">Front screen door handle</td><td class="status paid">Paid</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R36–39</td><td class="house">Sundisk</td><td class="item">Plunger / towel holder / bullnose LVP</td><td class="status needs">Work Completed / Needs Paid</td></tr>
+        </tbody>
+      <tr><td><input class="check" type="checkbox" /></td><td class="row">R2</td><td class="house">Chestnut</td><td class="item">HVAC duct seal</td><td class="status">Done 2026-09-15</td></tr>
+          </table>
+    </div>
+  </div>
+
+  <p class="footer">
+    Draft SMS for Gama stays unsent until Grant GOs exact words.<br />
+    Prior Google Doc/Sheet attempts left in Drive; this HTML is the director board.
+  </p>
+</body>
+</html>
