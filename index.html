@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- Updated 2026-09-19 17:13 MT: Sundisk bought+completed — wasp, towel rack/hooks, upstairs light, window screen -->
-
+<!-- Updated 2026-09-29. New pay rules. West Lake microwave + Alpine deck are first. -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -16,29 +15,29 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       padding-bottom: max(2rem, env(safe-area-inset-bottom));
     }
     h1 { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.25rem; text-align: center; }
-    .sub { color: #9aa0a6; margin-bottom: 1.5rem; font-size: 0.9rem; text-align: center; max-width: 640px; line-height: 1.4; }
+    .sub { color: #9aa0a6; margin-bottom: 1.25rem; font-size: 0.9rem; text-align: center; max-width: 720px; line-height: 1.4; }
     .sub a { color: #60a5fa; }
-    .wrap { width: min(720px, 100%); display: flex; flex-direction: column; gap: 1rem; }
+    .wrap { width: min(760px, 100%); display: flex; flex-direction: column; gap: 1rem; }
     .card {
       background: #1a1d24;
       border: 1px solid #2a2f3a;
       border-radius: 12px;
-      padding: 1.25rem;
+      padding: 1.15rem 1.1rem;
     }
     .card h2 {
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin: 0 0 0.85rem;
+      margin: 0 0 0.75rem;
       color: #9aa0a6;
     }
-    .card.direction { border-color: #3a3420; }
-    .card.direction h2 { color: #fbbf24; }
+    .card.agree { border-color: #3a3420; }
+    .card.agree h2 { color: #fbbf24; }
     .card.buy { border-color: #2e1f4a; }
     .card.buy h2 { color: #a78bfa; }
     .card.p1 { border-color: #4a2020; }
@@ -53,190 +52,262 @@
       background: #0f1115;
       border: 1px solid #2a2f3a;
       border-radius: 8px;
-      padding: 0.9rem 1rem;
+      padding: 0.85rem 1rem;
       font-size: 0.95rem;
       line-height: 1.45;
-      color: #e8eaed;
     }
-    .direction-box ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
-    .direction-box li { margin: 0.25rem 0; }
+    .direction-box ul { margin: 0.35rem 0 0; padding-left: 1.15rem; }
+    .direction-box li { margin: 0.35rem 0; }
     table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
     th {
       text-align: left;
       color: #9aa0a6;
       font-weight: 600;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      padding: 0.35rem 0.4rem 0.55rem;
+      padding: 0.35rem 0.35rem 0.5rem;
       border-bottom: 1px solid #2a2f3a;
     }
     td {
-      padding: 0.55rem 0.4rem;
+      padding: 0.55rem 0.35rem;
       border-bottom: 1px solid #22262f;
       vertical-align: top;
       line-height: 1.35;
     }
     tr:last-child td { border-bottom: 0; }
-    .row { white-space: nowrap; color: #9aa0a6; font-variant-numeric: tabular-nums; }
-    .house { font-weight: 600; color: #c4c7ce; }
+    .house { font-weight: 650; color: #c4c7ce; white-space: nowrap; }
     .item { color: #e8eaed; }
-    .note { display: block; color: #9aa0a6; font-size: 0.8rem; margin-top: 0.2rem; }
+    .note { display: block; color: #9aa0a6; font-size: 0.8rem; margin-top: 0.25rem; }
     .status { color: #9aa0a6; font-size: 0.85rem; }
     .status.paid { color: #3dd68c; }
     .status.needs { color: #fbbf24; }
-    .check {
-      width: 1.1rem;
-      height: 1.1rem;
-      accent-color: #3dd68c;
-      margin-top: 0.15rem;
+    .status.bad { color: #f87171; }
+    .check { width: 1.1rem; height: 1.1rem; accent-color: #3dd68c; margin-top: 0.15rem; }
+    .hint { margin-top: 0.75rem; font-size: 0.8rem; color: #6b7280; line-height: 1.4; }
+    .photos { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.7rem; }
+    .photos figure { margin: 0; }
+    .photos img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #2a2f3a; background: #0f1115; }
+    .photos figcaption { color: #9aa0a6; font-size: 0.78rem; margin-top: 0.3rem; }
+    .footer { color: #6b7280; font-size: 0.8rem; text-align: center; margin-top: 0.4rem; max-width: 720px; line-height: 1.4; }
+    a { color: #60a5fa; }
+    @media (max-width: 640px) {
+      .house { white-space: normal; }
+      table { font-size: 0.85rem; }
     }
-    .hint { margin-top: 0.85rem; font-size: 0.8rem; color: #6b7280; line-height: 1.4; }
-    .hint a { color: #60a5fa; }
-    .pill {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.15rem 0.45rem;
-      border-radius: 999px;
-      margin-left: 0.35rem;
-      vertical-align: middle;
-    }
-    .pill.open { background: #2a1515; color: #f87171; }
-    .pill.buy { background: #1f1530; color: #a78bfa; }
-    .pill.geo { background: #15202a; color: #7dd3fc; }
-    .footer { color: #6b7280; font-size: 0.8rem; text-align: center; margin-top: 0.5rem; max-width: 720px; line-height: 1.4; }
-    a.lowes { color: #60a5fa; }
   </style>
 </head>
 <body>
   <h1>Gama Direction Dashboard</h1>
   <div class="sub">
-    Updated 2026-09-19 · Priority 1st = <strong>Longmont</strong> (Princess showerhead first) · Priority 2nd = <strong>Loveland</strong> · Sundisk batch done<br />
-    Source:
-    <a href="https://docs.google.com/spreadsheets/d/1WxZQV3EL3nvXW8QtBg4TNP03PrdgNk1CJ0B0Y9JueCw" target="_blank" rel="noopener">Maintenance Catch-Up</a>
+    Updated 2026-09-29 · No visit is scheduled until Grant texts the go-ahead<br />
+    <a href="https://docs.google.com/spreadsheets/d/1WxZQV3EL3nvXW8QtBg4TNP03PrdgNk1CJ0B0Y9JueCw" target="_blank" rel="noopener">Maintenance catch-up sheet</a>
     ·
     <a href="https://app.asana.com/0/1125965306360957" target="_blank" rel="noopener">Asana Maintenance (NoCo)</a>
   </div>
 
   <div class="wrap">
-    <div class="card direction">
-      <h2>1) Grant → Gama this week</h2>
-      <div class="direction-box" contenteditable="true" spellcheck="true">
+    <div class="card agree">
+      <h2>1) Household-X &amp; BRBO</h2>
+      <div class="direction-box">
         <ul>
-          <li>Finish all <strong>Priority 1st (Longmont)</strong> before Loveland.</li>
-          <li><strong>Longmont 1st order:</strong> <strong>Princess downstairs showerhead first</strong>, then other Princess / Alpine / Gardner 1sts.</li>
-          <li><strong>Loveland 2nd order:</strong> Chestnut (HVAC leak/seal + curtain/rod + 2 exterior lights DONE; cracked window deferred) → Pyrite window screen → Scotch west garage lights. <strong>Sundisk batch DONE</strong> (screen, towel hooks, upstairs light, wasp).</li>
-          <li>Then <strong>Priority 2nd = Loveland only</strong>. Do not mix Gateway/Drake into 2nd.</li>
-          <li><strong>Princess shower (1st job on Longmont):</strong> install downstairs showerhead only; test that water stays in the shower. If not, tell Grant what you recommend for the threshold.</li>
-          <li>Shopping links on this board are <strong>examples</strong> — buy that item or an equivalent at your discretion.</li>
-          <li>When a house is done: send per-house invoice in <strong>HX &amp; Gamaliel</strong> — supplies / labor @$45/hr / drive — plus pics.</li>
+          <li><strong>Agree in the HX &amp; Gamaliel text before any work starts.</strong> That text has to name the house, the job, and which pay method. No text agreement, no work.</li>
+          <li><strong>Pay method, pick one per job:</strong> (1) <strong>$60/hour</strong>, or (2) <strong>project price</strong> for the whole labor job. Gas and travel time are <strong>not paid</strong>.</li>
+          <li>Hours are work at the house only. Shopping time is not an hour charge unless the text says so.</li>
+          <li>One invoice per house, after the house is done: supplies already paid by HX, labor at the agreed method, total. No second invoice to swap a wrong part.</li>
+          <li>Knock first. If nobody answers, go in and say you are Household-X. Do not kill power or water unless Grant has warned the house. Work window is <strong>8:00 a.m.–8:00 p.m.</strong></li>
+          <li>Checkboxes on this page stay on your phone only. Grant cannot see them. Screenshot the page if you want a box marked on his side.</li>
+          <li>The Sep 21 Longmont invoice (7 hours plus gas) is <strong>not accepted and not paid</strong>. New jobs use the rules above. Do not start them until Grant texts that the old invoice is settled and names the next job.</li>
         </ul>
       </div>
     </div>
 
     <div class="card buy">
-      <h2>2) Shopping list <span class="pill buy">buy / bring</span></h2>
+      <h2>2) Shopping list</h2>
       <table>
         <thead>
           <tr><th></th><th>House</th><th>Item</th><th>Notes</th></tr>
         </thead>
         <tbody>
-          <tr><td><input class="check" type="checkbox" /></td><td class="house">Chestnut</td><td class="item">Furnace filter 16×25×4</td><td class="status"><a class="lowes" href="https://www.lowes.com/pd/16-in-W-x-25-in-L-x-4-in-MERV-8-Pleated-Air-Filter/5015372149" target="_blank" rel="noopener">Lowes link</a> · R12</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="house">Scotch</td><td class="item">Cheap light bulbs (west garage exterior fixtures)</td><td class="status">Test west-side garage exterior lights with cheap bulbs. If fixtures still don’t work after bulbs, fix the fixtures.</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="house">Gardner</td><td class="item">Toilet seat bolt(s)</td><td class="status">Plastic seat-to-toilet bolt · thread Lowes list</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="house">Princess</td><td class="item">Downstairs showerhead (fixed / no hose) — <a class="lowes" href="https://www.lowes.com/pd/Pfister-HydroFuse-6-Function-Spot-Defense-Brushed-Nickel-5-5-in-Round-Fixed-Shower-Head-1-75-GPM-6-6-LPM/5015318923" target="_blank" rel="noopener">Pfister HydroFuse brushed nickel (metal)</a></td><td class="status">Buy HydroFuse · install only. Then test that water stays in the shower. If it does not, tell Grant what you recommend for the threshold · R89 · Item 6291007 · ~$35</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="house">Princess</td><td class="item">Furnace filter 1×16×12 · bulbs</td><td class="status">R92–R96</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="house">Alpine</td><td class="item">Furnace filter 16×24×1</td><td class="status">R73</td></tr>R73</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="house">Gardner</td><td class="item">Furnace filter</td><td class="status">R85 · replace at visit</td></tr>
+          <tr>
+            <td><input class="check" type="checkbox" disabled /></td>
+            <td class="house">West Lake</td>
+            <td class="item">Built-in over-the-range microwave, ordered before the visit</td>
+            <td class="status">Do not buy yet. Model number is not readable on the Centriq label. Match the photo in section 3. This is not the red countertop microwave already sent to the house.</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" disabled /></td>
+            <td class="house">Alpine</td>
+            <td class="item">Deck board material</td>
+            <td class="status">Do not buy yet. Project price first. Material list comes after Grant accepts the price.</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">Chestnut</td>
+            <td class="item">Furnace filter 16×25×4, cheapest of that size</td>
+            <td class="status">Only if it is not already on hand. The 1-inch filter was the wrong size. Amazon, not another Lowe’s guess. No second invoice for the swap.</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">Gardner</td>
+            <td class="item">Toilet tank bolts, not the seat bolts</td>
+            <td class="status">Only if Grant texts you back to finish this. Water was left off on Sep 21.</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">Sundisk</td>
+            <td class="item">Upstairs hand-towel hook, about $10.98</td>
+            <td class="status">You already said you would not charge for this redo. Main-floor rack is the one that was installed in the wrong room.</td>
+          </tr>
         </tbody>
       </table>
-      <div class="hint"><strong>Shopping links are examples.</strong> Buy the linked item <em>or something equivalent</em> at your discretion (same job, similar quality/price). Confirm sizes before buying. Prefer metal showerheads (Princess = HydroFuse or equal).</div>
+      <div class="hint">Nothing on this list gets bought until Grant’s text says to buy it.</div>
     </div>
 
     <div class="card p1">
-      <h2>3) Priority 1st — Longmont stops <span class="pill geo">Longmont</span> <span class="pill open">Princess showerhead first · Alpine · Gardner</span></h2>
+      <h2>3) First priority</h2>
       <table>
         <thead>
-          <tr><th></th><th>Row</th><th>House</th><th>Item</th><th>Status</th></tr>
+          <tr><th></th><th>Order</th><th>House</th><th>Item</th><th>Pay</th></tr>
         </thead>
         <tbody>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R89</td><td class="house">Princess</td><td class="item">Downstairs showerhead install <span class="note">Buy <a class="lowes" href="https://www.lowes.com/pd/Pfister-HydroFuse-6-Function-Spot-Defense-Brushed-Nickel-5-5-in-Round-Fixed-Shower-Head-1-75-GPM-6-6-LPM/5015318923" target="_blank" rel="noopener">Pfister HydroFuse BN</a> (metal). Install. Test water stays in shower; if not, tell Grant threshold recommendation.</span></td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R91</td><td class="house">Princess</td><td class="item">Window screen missing</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R92</td><td class="house">Princess</td><td class="item">Furnace filter 1×16×12 (urgent — overdue)</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">—</td><td class="house">Gardner</td><td class="item">Toilet seat bolt(s) / broken toilet seat hardware <span class="note">Bring bolt(s) from shopping list; fix seat attachment</span></td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R83</td><td class="house">Gardner</td><td class="item">Door trouble opening</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R85</td><td class="house">Gardner</td><td class="item">Furnace filter (replace at visit)</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R87</td><td class="house">Gardner</td><td class="item">Side driveway cleanup <span class="note">Not a yard cleanup. Cut down &amp; haul away all weeds/junk in the side driveway (beside the house). Apply ground kill so it does not grow back. Only trash + recycle bins should remain in that side driveway. Welcome to use Grant’s trailer.</span></td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R82</td><td class="house">Gardner</td><td class="item">Take down back pergola &amp; haul/dispose <span class="note">Haul away and dispose. Welcome to use Grant’s trailer for this + side-driveway debris.</span></td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R67</td><td class="house">Alpine</td><td class="item">Rotted boards on deck</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R73</td><td class="house">Alpine</td><td class="item">Furnace filter 16×24×1</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R77</td><td class="house">Alpine</td><td class="item">LVP gaps in kitchen/dining (push + seal)</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R78</td><td class="house">Alpine</td><td class="item">Smoke detector reinstall (upstairs hallway)</td><td class="status">Open</td></tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">1</td>
+            <td class="house">West Lake</td>
+            <td class="item">Replace the built-in microwave
+              <span class="note">1520 W 12th St, Loveland. Over-the-range, stainless, above the stove. It does not heat. Error <strong>F4</strong> when Start is pressed. Warranty claim <strong>315799750</strong> is already open (service fee paid, Aurora Appliance Repair). Do not order and do not pull the unit until Grant texts that this is your job and names the model to order. Order it <strong>before</strong> the visit. Manufactured January 2018. The Centriq label’s serial is cut off (visible ending 80420261). Model number is not in that photo.</span>
+            </td>
+            <td class="status">Project price. Text the price and wait for yes.</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">2</td>
+            <td class="house">Alpine</td>
+            <td class="item">Replace the damaged wood on the back deck
+              <span class="note">1319 Alpine St, Longmont. Look only so far. The Sep 21 photos on the phone are the new furnace filter and the smoke detector, not the deck boards. A deck photo was not on this phone to post. Walk it, send pictures of each bad board, then send a project price. Do not buy lumber first.</span>
+            </td>
+            <td class="status">Project price. Text the price and wait for yes.</td>
+          </tr>
         </tbody>
       </table>
-      <div class="hint">Longmont-only 1st list. <strong>Start with Princess downstairs showerhead (R89).</strong> More Alpine/Gardner/Princess Catch-Up rows exist — pull next if this batch clears.</div>
+      <div class="photos">
+        <figure>
+          <img src="images/westlake-microwave.jpg" alt="West Lake over-the-range microwave in the oak cabinets" />
+          <figcaption>West Lake built-in microwave to match. Centriq photo. Not the red countertop unit.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/westlake-microwave-label.jpg" alt="Partial rating label inside the West Lake microwave" />
+          <figcaption>Same unit, inside label. January 2018. Model number is cut off. Do not guess a model from this.</figcaption>
+        </figure>
+      </div>
     </div>
 
     <div class="card p2">
-      <h2>4) Priority 2nd — Loveland stops <span class="pill geo">Loveland</span> <span class="pill open">2 open</span></h2>
+      <h2>4) Second priority</h2>
       <table>
         <thead>
-          <tr><th></th><th>Row</th><th>House</th><th>Item</th><th>Status</th></tr>
+          <tr><th></th><th>House</th><th>Item</th><th>Status</th></tr>
         </thead>
         <tbody>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R25</td><td class="house">Pyrite</td><td class="item">Window screen repair/replacement</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">—</td><td class="house">Scotch</td><td class="item">West garage exterior lights <span class="note">Cheap bulbs first to test fixtures; if still dead, fix the light fixtures</span></td><td class="status">Open</td></tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">Gardner</td>
+            <td class="item">Front door still fails
+              <span class="note">You called it done Sep 21. The house said Sep 23 it still will not open. You said an inside lock also blocks it, and the code delay may need a reset. Finish only if Grant texts the next step.</span>
+            </td>
+            <td class="status bad">Not done</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">Gardner</td>
+            <td class="item">Toilet tank bolts, and turn the water back on
+              <span class="note">It was the tank bolts, not the seat bolts. You drained a bucket and left the water off. Confirm with the house that it flushes before you leave.</span>
+            </td>
+            <td class="status bad">Not done</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">Chestnut</td>
+            <td class="item">Install the 4-inch furnace filter
+              <span class="note">1-inch was wrong. You said the 4-inch and the screens have to come from Amazon. Text Grant when the right filter is in the furnace.</span>
+            </td>
+            <td class="status">Open</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">Sundisk</td>
+            <td class="item">Move the hand-towel hook to the upstairs bath
+              <span class="note">The rack that went in is for the main-floor bath. You priced a $10.98 hook and said you would not charge.</span>
+            </td>
+            <td class="status">Open, no charge</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">Scotch</td>
+            <td class="item">West garage exterior lights
+              <span class="note">Cheap bulbs first. If the fixture is still dead, text Grant before replacing it.</span>
+            </td>
+            <td class="status">Open</td>
+          </tr>
+          <tr>
+            <td><input class="check" type="checkbox" /></td>
+            <td class="house">Princess</td>
+            <td class="item">Window screen, only if you can show which one is missing
+              <span class="note">Sep 21 you said every window already had a screen. Do not buy a screen until Grant confirms there is still one missing.</span>
+            </td>
+            <td class="status">Probably not needed</td>
+          </tr>
         </tbody>
       </table>
-      <div class="hint">Loveland is 2nd after Longmont 1sts clear. Chestnut HVAC/curtain/exterior lights + <strong>Sundisk screen / towel hooks / upstairs light / wasp = done</strong>. Still open: Pyrite window screen + Scotch west garage lights. Chestnut cracked window = deferred ~1–2 weeks.</div>
+      <div class="hint">These wait until the two first-priority jobs are agreed in text, or until Grant texts one of these by name.</div>
     </div>
 
     <div class="card p3">
-      <h2>5) Later — Priority 3rd / other <span class="pill open">incl. deferred</span></h2>
+      <h2>5) Deferred (Don't Do)</h2>
       <table>
         <thead>
-          <tr><th></th><th>Row</th><th>House</th><th>Item</th><th>Status</th></tr>
+          <tr><th></th><th>House</th><th>Item</th><th>Why it waits</th></tr>
         </thead>
         <tbody>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R4</td><td class="house">Chestnut</td><td class="item">Cracked window</td><td class="status">Deferred ~1–2 wks</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R18–22</td><td class="house">Gateway</td><td class="item">Floor planks / roof drain / fence / drawer / bath caulk</td><td class="status">Was 2nd — moved after Longmont re-cut</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R60–62</td><td class="house">Drake</td><td class="item">Mower blade / screen door</td><td class="status">Was 2nd — moved after Longmont re-cut</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R61</td><td class="house">Drake</td><td class="item">Repair fence damage</td><td class="status">Open — add / prioritize</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R24</td><td class="house">Gateway</td><td class="item">Basement bathroom cabinet above toilet</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R26</td><td class="house">Pyrite</td><td class="item">Concrete pad outside back garage door</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R31</td><td class="house">Scotch</td><td class="item">Front door glass filter</td><td class="status">Open</td></tr>
-          <tr><td><input class="check" type="checkbox" /></td><td class="row">R48</td><td class="house">Sunnyside</td><td class="item">Water filter (G.E. PFSF6PKXBWW)</td><td class="status">Open</td></tr>
+          <tr><td><input class="check" type="checkbox" disabled /></td><td class="house">Gardner</td><td class="item">Back pergola tear-down and haul</td><td class="status">Not the rush. Needs a truck or Grant’s trailer and a separate text.</td></tr>
+          <tr><td><input class="check" type="checkbox" disabled /></td><td class="house">Gardner</td><td class="item">Side driveway weeds and junk</td><td class="status">Not the rush. Same visit as the pergola, later.</td></tr>
+          <tr><td><input class="check" type="checkbox" disabled /></td><td class="house">Chestnut</td><td class="item">Cracked window</td><td class="status">Deferred. Do not buy glass.</td></tr>
+          <tr><td><input class="check" type="checkbox" disabled /></td><td class="house">Alpine</td><td class="item">LVP gaps in the kitchen</td><td class="status">Not on this round.</td></tr>
+          <tr><td><input class="check" type="checkbox" disabled /></td><td class="house">Pyrite</td><td class="item">Window screen</td><td class="status">After Longmont and the filter swap.</td></tr>
+          <tr><td><input class="check" type="checkbox" disabled /></td><td class="house">Sunnyside</td><td class="item">Shower head and rod</td><td class="status">Grant has not confirmed the house actually needs them.</td></tr>
+          <tr><td><input class="check" type="checkbox" disabled /></td><td class="house">Gateway / Drake</td><td class="item">Floors, fence, cabinet, mower, screen door</td><td class="status">Not this list.</td></tr>
+          <tr><td><input class="check" type="checkbox" disabled /></td><td class="house">Other</td><td class="item">Any job for a house that is not Household-X</td><td class="status">Not this dashboard.</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="card done">
-      <h2>6) Recently done / paid</h2>
+      <h2>6) Completed: Status / Paid</h2>
       <table>
         <thead>
-          <tr><th></th><th>Row</th><th>House</th><th>Item</th><th>Status</th></tr>
+          <tr><th></th><th>House</th><th>Item</th><th>Status / Paid</th></tr>
         </thead>
         <tbody>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R2</td><td class="house">Chestnut</td><td class="item">HVAC leak / duct seal</td><td class="status paid">Done 2026-09-15</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R3</td><td class="house">Chestnut</td><td class="item">Utility room curtain &amp; rod (HVAC cover)</td><td class="status paid">Done 2026-09-19</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">—</td><td class="house">Chestnut</td><td class="item">2 exterior flood / motion lights</td><td class="status paid">Done 2026-09-19</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R33</td><td class="house">Sundisk</td><td class="item">Window screen</td><td class="status paid">Done 2026-09-19 (bought + completed)</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R34</td><td class="house">Sundisk</td><td class="item">Bathroom / towel hooks (towel rack)</td><td class="status paid">Done 2026-09-19 (bought + completed)</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R40</td><td class="house">Sundisk</td><td class="item">Light fixture at top of stairs (upstairs light)</td><td class="status paid">Done 2026-09-19 (bought + completed)</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R47</td><td class="house">Sundisk</td><td class="item">Wasp spray + wasp trap</td><td class="status paid">Done 2026-09-19 (bought + completed)</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R66</td><td class="house">Alpine</td><td class="item">Dryer replacement</td><td class="status paid">Done — new dryer installed</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R28</td><td class="house">Scotch</td><td class="item">Dishwasher leaking</td><td class="status paid">Paid 9/8/2026</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R35</td><td class="house">Sundisk</td><td class="item">Front screen door handle</td><td class="status paid">Paid</td></tr>
-          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="row">R36–39</td><td class="house">Sundisk</td><td class="item">Plunger / towel holder / bullnose LVP</td><td class="status needs">Needs Paid</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">Scotch</td><td class="item">Dishwasher installed. Old unit left in that garage.</td><td class="status paid">Paid. Dollar amount was on the invoice photo, not in the text.</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">West 9th</td><td class="item">Door closer on the front door, two furnace filters</td><td class="status paid">Grant texted Paid on Sep 8. Amount was not in the text.</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">Alpine</td><td class="item">Dryer</td><td class="status paid">Done by Lowe’s, not by Gama. Old dryer hauled by them.</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">Chestnut</td><td class="item">HVAC curtain, exterior lights, duct work already marked done</td><td class="status paid">Grant texted Paid Sep 16 and Paying now Sep 17. Amounts are on those photos.</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">Sundisk</td><td class="item">Towel rack, sink plunger, screen kit bought</td><td class="status needs">Screen kit was “pay me when the day is invoiced.” No payment text after Sep 19.</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">Princess</td><td class="item">Downstairs shower head. Water stays in the shower.</td><td class="status needs">Invoiced Sep 21. Hours disputed. Not paid.</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">Princess</td><td class="item">Furnace filter</td><td class="status needs">On that same invoice. Not paid.</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">Alpine</td><td class="item">Furnace filter and smoke-detector battery</td><td class="status needs">On the Sep 21 invoice. Deck was only looked at. Not paid.</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">Gardner</td><td class="item">Door latch attempt</td><td class="status bad">Not accepted. House says it still fails. Not paid.</td></tr>
+          <tr><td><input class="check" type="checkbox" checked disabled /></td><td class="house">Three houses</td><td class="item">Sep 21 labor invoice: 2h Alpine + 2h Princess + 3h Gardner, plus $75 gas</td><td class="status bad">Not paid. Gas is no longer a pay item on new work. This old invoice still needs a text from Grant.</td></tr>
         </tbody>
       </table>
+      <div class="hint">Asana Maintenance is years of old tickets plus a Sep 15 copy of this list. Those old tickets are not added here. If a house texts a new problem, it waits for Grant’s text before it lands on this page.</div>
     </div>
   </div>
 
   <p class="footer">
-    Hosted: https://syfergod.github.io/gama-direction-dashboard/<br />
-    Draft SMS for Gama stays unsent until Grant GOs exact words.
+    https://syfergod.github.io/gama-direction-dashboard/<br />
+    Work orders stay in the HX &amp; Gamaliel group text. This page does not send texts.
   </p>
 </body>
 </html>
